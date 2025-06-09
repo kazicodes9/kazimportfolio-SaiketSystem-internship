@@ -1,29 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // 1. Responsive Menu Functionality
-  const menuToggle = document.createElement('div');
-  menuToggle.className = 'menu-toggle';
-  menuToggle.innerHTML = '☰';
-  
-  const nav = document.querySelector('nav');
-  const navList = document.querySelector('nav ul');
-  
-  if (nav && navList) {
-    nav.insertBefore(menuToggle, navList);
-    
-    menuToggle.addEventListener('click', function() {
-      navList.classList.toggle('active');
-      menuToggle.textContent = navList.classList.contains('active') ? '✕' : '☰';
-    });
-    
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function() {
-        navList.classList.remove('active');
-        menuToggle.textContent = '☰';
-      });
-    });
-  }
-
-  // 2. Typing Animation
+window.addEventListener("DOMContentLoaded", () => {
   const text = "Kazim";
   let index = 0;
   const typingTarget = document.getElementById("typing-name");
@@ -34,9 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
       if (index < text.length) {
         typingTarget.textContent += text.charAt(index);
         index++;
-        setTimeout(typeWriter, 200);
+        setTimeout(typeWriter, 200); // slower animation
       }
     }
     typeWriter();
   }
 });
+// Back to Top Button
+const backToTopBtn = document.createElement("button");
+backToTopBtn.innerText = "↑ Top";
+backToTopBtn.id = "backToTop";
+document.body.appendChild(backToTopBtn);
+
+// Style the button
