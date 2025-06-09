@@ -1,39 +1,63 @@
-/* Reset & Base Styles */
-
-{ margin: 0; padding: 0; box-sizing: border-box; }
-
-
-body { font-family: 'Segoe UI', sans-serif; background-color: #080808; /* Light Gray Background */ color: #222; line-height: 1.6; padding: 20px; }
-
-/* Header */ header { background-color: #f1f4ef; color: #100f0f; padding: 20px; text-align: center; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-
-header h1 { font-size: 2.5em; margin-bottom: 10px; }
-
-nav a { margin: 0 15px; text-decoration: none; color: #071702; font-weight: 600; transition: color 0.3s; }
-
-nav a:hover { color: #09f909; text-decoration: underline; }
-
-/* Sections */ section { background-color: #f9faf8; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(2, 240, 38, 0.996); }
-
-section h2 { font-size: 1.6em; margin-bottom: 10px; color: #0df905; }
-
-ul { list-style: disc; padding-left: 20px; }
-
-/* Footer */ footer { text-align: center; font-size: 0.9em; color: #666666; margin-top: 40px; }
-img{
-    width: 100%;
-  height: 800px;
-  overflow: hidden;
-  border-radius: 10px;
+/* Responsive Menu Styles */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.8em;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+  color: #071702;
 }
-.about-img{
-  max-width: 40%;
-  height: 100;
-  overflow: hidden;
-  border-radius: 10px;
-}
-body.about{
+
+nav ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f1f4ef;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 0 0 12px 12px;
+    z-index: 1000;
+    padding: 15px 0;
+    margin-top: 10px;
+  }
+  
+  nav ul.active {
+    display: flex;
+  }
+  
+  nav li {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  header {
+    padding-bottom: 10px;
+    position: relative;
+  }
+}
+
+/* Typing Animation Styles */
+#typing-name {
+  display: inline-block;
+  color: #09f909;
+  font-weight: bold;
 }
